@@ -1,0 +1,100 @@
+@import url('https://fonts.cdnfonts.com/css/lt-streetway-neue');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'LT Streetway Neue', sans-serif;
+  font-weight: 900;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #3d3c48;
+}
+ul {
+  position: relative;
+  transform: skewY(-15deg);
+}
+ul li {
+  position: relative;
+  list-style: none;
+  width: 120px;
+  background: #2f2a37;
+  padding: 15px;
+  transition: 0.7s;
+  z-index: calc(1 * var(--i))
+}
+ul li:hover {
+  transform: translateX(-50px);
+  background-color: var(--clr);
+  cursor: pointer;
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  background: #2f2a37;
+  filter: brightness(0.7);
+  transform-origin: right;
+  transform: skewY(45deg);
+  transition: 0.35s;
+}
+ul li:hover::before {
+  background: var(--clr);
+  filter: brightness(0.7);
+}
+ul li::after {
+  content: '';
+  top: -40px;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+  background: #2f2a37;
+  filter: brightness(0.9);
+  transform-origin: bottom;
+  transform: skewX(45deg);
+  transition: 0.5s;
+}
+ul li:hover::after {
+  background: var(--clr);
+  filter: brightness(0.9);
+}
+ul li a {
+  text-decoration: none;
+  color: #928791;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+ul li:hover a {
+  color: #fff5fe;
+}
+ul li:last-child::after {
+  box-shadow: -120px 120px 20px rgba(0,0,0,0.25);
+}
+ul li span {
+  position: absolute;
+  top: 0px;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  filter: brightness(0.7);
+  transform-origin: right;
+  transform: skewY(45deg);
+  transition: 0.35s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  font-size: 1.25em;
+}
+ul li:hover span {
+  opacity: 1;

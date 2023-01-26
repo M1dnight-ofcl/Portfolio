@@ -1,0 +1,184 @@
+@font-face { /* Import the logo's font */
+  font-family: logofont;
+  src: url(fonts/logofont.ttf) format("truetype")
+}
+@font-face { /* Imports the paragraph font */
+  font-family: para1;
+  src: url(fonts/parafont1.ttf) format("truetype")
+}
+@font-face { /* Imports the header font */
+  font-family: hdr1;
+  src: url(fonts/hdrfont1.ttf) format("truetype")
+}
+:root {
+  --radius: 10px;       /*  The border radius */
+  --bgSize: 300px;      /* The size of the bg */
+  --skewAmt1: 45deg;    /*  The skew ammount  */
+  --mrgnBtn: 15px;      /* The margin ammount */
+  --bgClr: #23252a;   /*  Background color  */
+  --bgClr2: #1e1e1f;  /*  Foreground color  */
+  --txtClr: #bfd3e8;  /*     Text color     */
+  --lgoClr: #bfd3e8;  /*     Logo color     */
+  --txtClr2: #8695a7; /*    Text color 2    */
+  --btnClr: #161618;  /*    Button color    */
+  --btnClr2: #161618; /*    Text color 2    */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--bgClr);
+  color: var(--txtClr);
+}
+.logo {
+  font-family: logofont;
+  font-size: 15vw;
+  color: var(--lgoClr);
+  opacity: 0%;
+  line-height: 2em;
+  text-align: center;
+  text-shadow: 5px 5px 10px rgba(0,0,0,0.25);
+  transform: translateY(10px);
+  font-weight: 500;
+  position: relative;
+  animation: enlarge 1s linear;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -1s);
+}
+@keyframes enlarge {
+  0% {
+    font-size: 15vw;
+    opacity: 100%;
+  }
+  100% {
+    font-size: 30vw;
+    opacity: 0%;
+  }
+}
+.h1s1, .h1s2 {
+  font-family: hdr1;
+  font-size: 60px;
+  line-height: 1em;
+  text-align: center;
+}
+.h1s1 {
+  animation: slideU 1s linear;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -2s);
+}
+.h1s2 {
+  animation: slideU 1s linear;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -1s);
+}
+@keyframes slideU {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 100%;
+  }
+}
+.p1s1 {
+  font-family: para1;
+  line-height: 1.25em;
+  font-size: 20px;
+  text-align: center;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("assets/images/bg.png");
+  height: 500px;
+  width: 100%;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  background-size: var(--bgSize);
+  background-repeat: repeat;
+  background-attachment: fixed;
+  animation: bgScroll 2s linear infinite;
+}
+@keyframes bgScroll {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: var(--bgSize) 170px;
+  }
+}
+.block1, .block2 {
+  padding: 10px;
+  margin: 10px;
+  align-items: center;
+  background: var(--bgClr2);
+  border-radius: 10px;
+  display: flex;
+  height: auto;
+}
+.block1 {
+  animation: zoom 1s ease-in;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -2s);
+}
+.block2 {
+  animation: zoom 1s ease-in;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -1.5s);
+}
+@keyframes zoom {
+  0% {
+    transform: scale(35%);
+    opacity: 0%;
+  }
+  100% {
+    transform: scale(100%);
+    opacity: 100%;
+  }
+}
+.desc1 {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.title1 {
+  font-family: hdr1;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  rotate: -90deg;
+  margin-top: 35%;
+  margin-bottom: 35%;
+}
+.btncntr {
+  height: 70px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+.btn1 {
+  font-family: para1;
+  font-size: 14px;
+  margin: 10px 10px;
+  padding: 10px 50px;
+  background: var(--txtClr);
+  color: var(--bgClr);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  transform: scale(100%) translateY(0px);
+  transition-timing-function: ease-out;
+}
+.btn1:hover {
+  transform: scale(110%) translateY(-5px);
+  background: var(--btnClr);
+  color: var(--txtClr);
+}
+.block3 {
+  padding: 20px;
+}
